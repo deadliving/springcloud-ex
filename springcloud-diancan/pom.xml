@@ -7,6 +7,9 @@
     <groupId>com.my.springcloud</groupId>
     <artifactId>springcloud-diancan</artifactId>
     <version>1.0.0.BUILD-SNAPSHOT</version>
+    <modules>
+        <module>../demo-m9</module>
+    </modules>
 
     <packaging>pom</packaging>
 <!--

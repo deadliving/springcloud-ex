@@ -3,13 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.my.springcloud</groupId>
-	<artifactId>eureka</artifactId>
+	<groupId>com.example</groupId>
+	<artifactId>order</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>eureka</name>
-	<description>Demo project for Spring Boot</description>
+	<name>order</name>
+	<description>order  client</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -27,15 +27,14 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
-		<!-- 从配置服务器读取配置 -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -72,25 +71,6 @@
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
-		</repository>
-		<repository>
-			<id>repository.springframework.maven.release</id>
-			<name>Spring Framework Maven Release Repository</name>
-			<url>http://maven.springframework.org/milestone/</url>
-		</repository>
-		<repository>
-			<id>org.springframework</id>
-			<url> http://maven.springframework.org/snapshot</url>
-		</repository>
-		<repository>
-			<id>spring-milestone</id>
-			<name>Spring Maven MILESTONE Repository</name>
-			<url>http://repo.spring.io/libs-milestone</url>
-		</repository>
-		<repository>
-			<id>spring-release</id>
-			<name>Spring Maven RELEASE Repository</name>
-			<url>http://repo.spring.io/libs-release</url>
 		</repository>
 	</repositories>
 
