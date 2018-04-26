@@ -78,4 +78,13 @@ public class ProductController {
         return ResultVOUtil.success(productVOList);
     }
 
+    /**
+     * 获取商品列表（给订单服务用的）
+     * @param productList
+     * @return
+     */
+    @GetMapping("/listForOrder")
+    public List<ProductInfo> listForOrder(List<String> productList){
+        return productService.findList(productList);
+    }
 }

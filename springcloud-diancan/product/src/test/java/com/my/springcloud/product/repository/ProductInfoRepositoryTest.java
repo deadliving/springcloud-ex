@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -29,4 +30,10 @@ public class ProductInfoRepositoryTest {
         Assert.assertTrue(productInfoList.size()>0);
     }
 
+    @Test
+    public void findByProductId() throws Exception{
+        List<ProductInfo> productInfoList = productInfoRepository.findByProductIdIn(Arrays.asList("adf1123ds2","adf12"));
+
+        Assert.assertTrue(productInfoList.size()>0);
+    }
 }
