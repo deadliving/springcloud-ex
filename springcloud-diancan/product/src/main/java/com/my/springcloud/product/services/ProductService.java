@@ -1,6 +1,7 @@
 package com.my.springcloud.product.services;
 
 import com.my.springcloud.product.model.ProductInfo;
+import dto.CartDto;
 
 import java.util.List;
 
@@ -20,4 +21,11 @@ public interface ProductService {
      * @return
      */
     List<ProductInfo> findList(List<String> productIdList);
+
+
+    /**
+     * 扣库存
+     * @param cartDtoList
+     */
+    void  decreaseStock(List<CartDto> cartDtoList);
 }

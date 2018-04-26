@@ -3,6 +3,7 @@ package com.my.springcloud.product.services.impl;
 import com.my.springcloud.product.ProductApplicationTests;
 import com.my.springcloud.product.model.ProductInfo;
 import com.my.springcloud.product.services.ProductService;
+import dto.CartDto;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,4 +40,9 @@ public class ProductServiceImplTest extends ProductApplicationTests{
         Assert.assertTrue(productInfoList.size()>0);
     }
 
+    @Test
+    public void decreaseStock() throws Exception{
+        CartDto cartDto = new CartDto("adf1123ds2",2);
+        productService.decreaseStock(Arrays.asList(cartDto));
+    }
 }

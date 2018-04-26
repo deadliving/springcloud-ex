@@ -8,11 +8,10 @@ import com.my.springcloud.product.util.ResultVOUtil;
 import com.my.springcloud.product.vo.ProductInfoVo;
 import com.my.springcloud.product.vo.ProductVO;
 import com.my.springcloud.product.vo.ResultVO;
+import dto.CartDto;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -83,8 +82,13 @@ public class ProductController {
      * @param productList
      * @return
      */
-    @GetMapping("/listForOrder")
-    public List<ProductInfo> listForOrder(List<String> productList){
+    @PostMapping("/listForOrder")
+    public List<ProductInfo> listForOrder(@RequestBody List<String> productList){
         return productService.findList(productList);
+    }
+
+    @PostMapping("/decreaseStock")
+    public void decreaseStock(@RequestBody List<CartDto> cartDtoList){
+        productService.decreaseStock(cartDtoList);
     }
 }

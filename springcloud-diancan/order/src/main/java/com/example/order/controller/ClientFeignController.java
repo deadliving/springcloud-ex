@@ -1,6 +1,7 @@
 package com.example.order.controller;
 
 import com.example.order.client.ProductClient;
+import com.example.order.dto.CartDto;
 import com.example.order.model.ProductInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
@@ -39,5 +40,11 @@ public class ClientFeignController {
         logger.info("response={}",productInfos);
 
         return "success";
+    }
+
+    @GetMapping("/decreaseStock")
+    public String productDecreaseStock(){
+        productClient.decreaseStock(Arrays.asList(new CartDto("adf1123ds2",3)));
+        return "ok";
     }
 }
