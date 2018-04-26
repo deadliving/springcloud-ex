@@ -1,17 +1,17 @@
 package com.example.order.service.impl;
 
-import com.example.order.client.ProductClient;
-import com.example.order.dto.CartDto;
 import com.example.order.dto.OrderDto;
 import com.example.order.enums.OrderStatusEnum;
 import com.example.order.enums.PayStatusEnum;
 import com.example.order.model.OrderDetail;
 import com.example.order.model.OrderMaster;
-import com.example.order.model.ProductInfo;
 import com.example.order.repository.OrderDetailRepository;
 import com.example.order.repository.OrderMasterRepository;
 import com.example.order.service.OrderService;
 import com.example.order.util.KeyUtil;
+import com.my.springcloud.client.ProductClient;
+import com.my.springcloud.product.dto.CartDto;
+import com.my.springcloud.product.model.ProductInfo;
 import org.hibernate.criterion.Order;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

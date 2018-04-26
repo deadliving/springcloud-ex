@@ -1,8 +1,8 @@
 package com.example.order.controller;
 
-import com.example.order.client.ProductClient;
-import com.example.order.dto.CartDto;
-import com.example.order.model.ProductInfo;
+import com.my.springcloud.client.ProductClient;
+import com.my.springcloud.product.dto.CartDto;
+import com.my.springcloud.product.model.ProductInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
