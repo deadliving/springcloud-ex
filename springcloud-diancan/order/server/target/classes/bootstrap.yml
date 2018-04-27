@@ -1,0 +1,18 @@
+server:
+  port: 9210
+spring:
+  application:
+    name: order
+  cloud:
+    config:
+    #读取本地配置
+#      uri: http://localhost:6661/
+      #环境
+      profile: dev
+      #读取eureka服务上的配置
+      discovery:
+        enabled: true
+        service-id: config-center
+#PRODUCT:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
