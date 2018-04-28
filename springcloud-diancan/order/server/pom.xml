@@ -47,6 +47,12 @@
             <groupId>com.my.springcloud</groupId>
             <artifactId>product-client</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+            <version>2.0.0.RC1</version>
+        </dependency>
     </dependencies>
 
 

@@ -8,14 +8,25 @@ spring:
   cloud:
     config:
       server:
-        native:
-          search-locations: classpath:/config
+#        native:
+#          search-locations: classpath:/config
         git:
           uri: https://github.com/deadliving/config-repo
           # 配置文件本地位置
           basedir: D:/project/owner/java-study/mygithub/springcloud-ex/springcloud-diancan/config-center/src/main/resources/basedir
+      profile: dev
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
