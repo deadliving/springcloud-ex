@@ -17,6 +17,6 @@ public class SendingBean {
     }
 
     public void sayHello(String name) {
-        streamClient.output().send(MessageBuilder.withPayload(name).build());
+//        streamClient.output().send(MessageBuilder.withPayload(name).build());
     }
 }

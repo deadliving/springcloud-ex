@@ -1,5 +1,6 @@
 package com.my.springcloud.product.services.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.my.springcloud.product.enums.ProductStatusEnum;
 import com.my.springcloud.product.enums.ResultEnum;
 import com.my.springcloud.product.exception.ProductException;
@@ -7,6 +8,7 @@ import com.my.springcloud.product.model.ProductInfo;
 import com.my.springcloud.product.repository.ProductInfoRepository;
 import com.my.springcloud.product.services.ProductService;
 import com.my.springcloud.product.dto.CartDto;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductInfoRepository productInfoRepository;
+
+    @Autowired
+    private AmqpTemplate amqpTemplate;
 
     @Override
     public List<ProductInfo> findUpAll() {
@@ -52,6 +57,9 @@ public class ProductServiceImpl implements ProductService {
             productInfo.setUpdateTime(new Date());
 
             productInfoRepository.save(productInfo);
+
+            //发送mq消息
+            amqpTemplate.convertAndSend("productInfo", JSON.toJSON(productInfo));
         }
     }
 }

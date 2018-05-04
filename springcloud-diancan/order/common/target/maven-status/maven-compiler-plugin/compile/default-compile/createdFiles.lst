@@ -1,0 +1,5 @@
+com\my\springcloud\order\model\OrderMaster.class
+com\my\springcloud\order\message\OrderMessage.class
+com\my\springcloud\order\dto\OrderDto.class
+com\my\springcloud\order\model\ProductInfo.class
+com\my\springcloud\order\model\OrderDetail.class

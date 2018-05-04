@@ -12,6 +12,15 @@ spring:
       discovery:
         enabled: true
         service-id: config-center
+    stream:
+      binders:
+        myMessage:
+          group: order
+        myOrderQ:
+          producter:
+            bindQueue: myOrderQ
+            bindingRoutingKey: order
+            exclusive: false
 eureka:
   client:
     service-url:

@@ -20,30 +20,30 @@ public class MqReceiver {
 //    自动创建队列
 //    @RabbitListener(queuesToDeclare = @Queue("myQueue"))
 
-    @RabbitListener(bindings = @QueueBinding(
-            value = @Queue("myQueue"),
-            exchange = @Exchange("myExchange")))
-    public void process(String message){
-        logger.info("MqReceiver : {}",message);
-    }
-
-    @RabbitListener(bindings = @QueueBinding(
-            exchange = @Exchange("myOrder"),
-            key = "computer",
-            value = @Queue("computerOrder")
-            ))
-    public void process1(String message){
-        logger.info("computer MqReceiver : {}",message);
-    }
-
-
-    @RabbitListener(bindings = @QueueBinding(
-            exchange = @Exchange("myOrder"),
-            key = "fruit",
-            value = @Queue("fruitOrder")
-            ))
-    public void process2(String message){
-        logger.info("fruit MqReceiver : {}",message);
-    }
+//    @RabbitListener(bindings = @QueueBinding(
+//            value = @Queue("myQueue"),
+//            exchange = @Exchange("myExchange")))
+//    public void process(String message){
+//        logger.info("MqReceiver : {}",message);
+//    }
+//
+//    @RabbitListener(bindings = @QueueBinding(
+//            exchange = @Exchange("myOrder"),
+//            key = "computer",
+//            value = @Queue("computerOrder")
+//            ))
+//    public void process1(String message){
+//        logger.info("computer MqReceiver : {}",message);
+//    }
+//
+//
+//    @RabbitListener(bindings = @QueueBinding(
+//            exchange = @Exchange("myOrder"),
+//            key = "fruit",
+//            value = @Queue("fruitOrder")
+//            ))
+//    public void process2(String message){
+//        logger.info("fruit MqReceiver : {}",message);
+//    }
 
 }

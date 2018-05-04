@@ -1,0 +1,40 @@
+eureka:
+#  instance:
+#    hostname: localhost
+#    prefer-ip-address: true
+#    instance-id: ${eureka.instance.hostname}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+#server:
+#  port: 9200
+spring:
+  application:
+    name: product
+  cloud:
+    config:
+    #读取本地配置
+#      uri: http://localhost:6661/
+      #环境
+      profile: dev
+      #读取eureka服务上的配置
+      discovery:
+        enabled: true
+        service-id: config-center
+    stream:
+      binders:
+        myMessage:
+          group: product
+        myOrderQ:
+          consumer:
+            bindQueue: myOrderQ
+            bindingRoutingKey: order
+        productInfo:
+          contentType: application/json
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://127.0.0.1/sc_sell?characterEncoding=utf-8&useSSL=false
+#    username: root
+#    password: root
+  jpa:
+    show-sql: true

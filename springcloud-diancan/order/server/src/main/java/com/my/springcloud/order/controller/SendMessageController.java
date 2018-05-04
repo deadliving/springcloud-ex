@@ -1,5 +1,7 @@
 package com.my.springcloud.order.controller;
 
+import com.my.springcloud.order.dto.OrderDto;
+import com.my.springcloud.order.message.OrderMessage;
 import com.my.springcloud.order.message.SendingBean;
 import com.my.springcloud.order.message.StreamClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +24,21 @@ public class SendMessageController {
     @Autowired
     private SendingBean sendingBean;
 
+    @Autowired
+    private StreamClient streamClient;
+
+//    @GetMapping("/send")
+//    public void process(){
+//        String message = "now "+ new Date();
+//        sendingBean.sayHello(message);
+//    }
     @GetMapping("/send")
     public void process(){
-        String message = "now "+ new Date();
-        sendingBean.sayHello(message);
+//        String message = "now "+ new Date();
+        OrderDto orderDto = new OrderDto();
+        orderDto.setOrderId("1232113as");
+        streamClient.output().send(MessageBuilder.withPayload(orderDto).build());
     }
+
 
 }
